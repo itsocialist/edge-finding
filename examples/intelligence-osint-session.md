@@ -15,7 +15,7 @@ OpenPlanter ingested three public datasets:
 - Corporate registry filings
 - Lobbying disclosure records
 
-Standard entity resolution produced **23 entities** and **47 known relationships**. Palantir-style ontology modeled them as:
+Standard entity resolution produced **23 entities** and **47 known relationships**. OpenPlanter's ontology modeled them as:
 
 ```
 ENTITIES:

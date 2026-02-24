@@ -1,6 +1,6 @@
 # Research Intelligence Integration Proposal
 
-**OpenPlanter + Palantir + Edge Bird: A Three-Layer Intelligence Discovery System**
+**OpenPlanter + Edge Bird: A Two-Layer Intelligence Discovery System**
 
 ---
 
@@ -10,17 +10,19 @@ Traditional intelligence analysis operates at the center of probability space �
 
 The connections that matter most are often the ones that live at the edges: low-probability links, unnamed patterns, relationships that no analyst would think to query because the *category* doesn't exist yet.
 
-This proposal describes a three-layer system that combines **structured OSINT collection** (OpenPlanter), **governed data fusion and ontology** (Palantir AIP), and **low-probability edge exploration** (Edge Bird) — using the weights and biases of LLMs not as flaws to mitigate, but as instruments to exploit for discovery.
+This proposal describes a system that combines **structured OSINT collection and ontology** (OpenPlanter) with **low-probability edge exploration** (Edge Bird) — using the weights and biases of LLMs not as flaws to mitigate, but as instruments to exploit for discovery.
+
+No Palantir. No enterprise license. Entirely open-source.
 
 ---
 
-## The Three Layers
+## The Two Layers
 
-### Layer 1: OpenPlanter — Collection & Entity Resolution
+### Layer 1: OpenPlanter — Collection, Entity Resolution & Ontology
 
-**What it is:** An open-source recursive AI agent for investigative research across heterogeneous datasets. Ingests corporate records, campaign finance data, lobbying disclosures, government contracts, and performs cross-dataset entity resolution.
+**What it is:** An open-source recursive AI agent for investigative research across heterogeneous datasets. Ingests corporate records, campaign finance data, lobbying disclosures, government contracts, and performs cross-dataset entity resolution. Positions itself as the open-source alternative to Palantir — ontology-first design, governed data model, multi-LLM integration.
 
-**Role in the system:** The hands. Reaches into the raw data.
+**Role in the system:** The hands AND the skeleton. Reaches into the raw data, then structures what it finds.
 
 **Key capabilities for integration:**
 - **Recursive decomposition** — breaks large investigations into sub-agent tasks (depth 4, 100 steps/cycle), parallelizing entity resolution and dataset linking
@@ -28,34 +30,21 @@ This proposal describes a three-layer system that combines **structured OSINT co
 - **Multi-LLM support** — OpenAI, Anthropic, Cerebras, Ollama (local) — provider-agnostic
 - **Evidence chain construction** — doesn't just find connections, builds auditable evidence paths
 - **Docker isolation** — agent shell commands sandboxed from host OS
+- **Ontology-first design** — entity-relationship model as core abstraction, inspired by Palantir's architecture but MIT-licensed and self-hostable
 
-**What it produces:** Resolved entities, cross-dataset links, evidence chains, structured investigation artifacts.
+**What it produces:** Resolved entities, cross-dataset links, evidence chains, structured investigation artifacts, entity-relationship models.
 
 **What it misses:** It optimizes for *known categories* of connection. It finds what you tell it to look for, or what standard entity resolution surfaces. It does not explore the unnamed.
 
----
-
-### Layer 2: Palantir AIP — Ontology, Governance & Structured Analysis
-
-**What it is:** Enterprise data platform that integrates LLMs into a governed ontology — a semantic model of objects, relationships, and actions across an organization's data.
-
-**Role in the system:** The skeleton. Structures and governs the knowledge.
-
-**Key capabilities for integration:**
-- **Ontology-first architecture** — all data modeled as governed business objects with typed relationships
-- **AIP Logic** — no-code LLM functions grounded in the ontology (automate classification, extraction, scheduling, anomaly detection)
-- **AIP Agent Studio** — builds interactive assistants with enterprise-specific tools and context
-- **Data fusion** — integrates disparate sources into unified, queryable layer
-- **Security/governance** — RBAC + ABAC, audit logging, data provenance, encryption
-- **Ontology SDK** — Python/Java/TypeScript programmatic access
-
-**What it produces:** Structured entity-relationship models, governed analytical workflows, auditable decision chains, visualizations.
-
-**What it misses:** Palantir operates on the ontology *as defined*. It finds patterns within the model you've built. It does not question whether the model itself is the right frame. It stays at the center of its own probability distribution.
+**Optional backing store:** For persistent graph storage and visualization beyond OpenPlanter's native model, open-source options include:
+- **Neo4j Community Edition** — graph database, natural fit for entity-relationship models, Cypher query language, free visualization
+- **NetworkX** (Python) — lightweight graph library for analysis and export
+- **Apache TinkerPop / JanusGraph** — distributed graph for larger-scale investigations
+- **Gephi** — open-source network visualization for analyst workbench
 
 ---
 
-### Layer 3: Edge Bird — Low-Probability Exploration
+### Layer 2: Edge Bird — Low-Probability Exploration
 
 **What it is:** A human-AI collaborative discovery practice that deliberately explores the edges of probability space — where unlikely connections live and unnamed patterns wait.
 
@@ -95,27 +84,17 @@ This proposal describes a three-layer system that combines **structured OSINT co
 │  • Recursive entity resolution                       │
 │  • Cross-dataset linking                             │
 │  • Evidence chain construction                       │
+│  • Ontology: entity-relationship model               │
 │  • Surface known-pattern connections                 │
 │                                                      │
-│  OUTPUT: Resolved entities + structured connections  │
-└──────────────────┬───────────────────────────────────┘
-                   │
-                   ▼
-┌──────────────────────────────────────────────────────┐
-│  LAYER 2: Palantir AIP / Ontology                    │
-│  ─────────────────────────────                       │
-│  • Model entities and relationships                  │
-│  • Governed data fusion                              │
-│  • LLM-powered classification and extraction         │
-│  • Structured analytical workflows                   │
-│  • Audit trail and provenance                        │
+│  Optional: Neo4j / NetworkX for persistent graph     │
 │                                                      │
-│  OUTPUT: Ontology model + analytical results         │
+│  OUTPUT: Resolved entities + structured ontology     │
 └──────────────────┬───────────────────────────────────┘
                    │
                    ▼
 ┌──────────────────────────────────────────────────────┐
-│  LAYER 3: Edge Bird                                  │
+│  LAYER 2: Edge Bird                                  │
 │  ────────────────                                    │
 │  • Feed ontology context to edge-finding sessions    │
 │  • Scatter probability across entity relationships   │
@@ -132,7 +111,7 @@ This proposal describes a three-layer system that combines **structured OSINT co
 │  ─────────────                                       │
 │  • Edge fragments that survive validation →          │
 │    new entity types / relationship types in          │
-│    the ontology                                      │
+│    the OpenPlanter ontology                          │
 │  • New ontology categories → new OpenPlanter         │
 │    search patterns                                   │
 │  • System learns to look for what it couldn't        │
@@ -187,9 +166,9 @@ OSINT Sources                    HUMINT Sources
      ┌────────────────────────┐
      │    Ontology Layer      │
      │    ──────────────      │
-     │    (Palantir AIP or    │
-     │     OpenPlanter's own  │
-     │     ontology model)    │
+     │    OpenPlanter's own   │
+     │    ontology model      │
+     │    + Neo4j (optional)  │
      │                        │
      │    Entities ←→ Rels    │
      │    Types, Properties   │
@@ -250,7 +229,7 @@ Where do models *disagree*? (The disagreement space is where unnamed patterns hi
 **Phase 5 — Fragment Validation:**
 Human analyst evaluates fragments against domain knowledge, HUMINT, and investigative intuition. Surviving fragments become:
 - New investigation leads (fed back to OpenPlanter)
-- New ontology categories (fed back to Palantir/ontology layer)
+- New ontology categories (fed back to OpenPlanter's entity model)
 - New questions (fed back to edge-finding)
 
 ---
@@ -301,12 +280,13 @@ By running edge-finding across multiple models on the same data, you can begin t
 - Instrument the loop: track which edge fragments eventually become named patterns
 - Measure: does the system find connections that structured analysis alone misses?
 
-### Phase 4: Integration & Governance (Weeks 13-16)
+### Phase 4: Persistence & Governance (Weeks 13-16)
 
-- If using Palantir: integrate via Ontology SDK, build AIP Logic functions for edge-finding prompt generation, pipe fragments back through governed workflows
-- If self-hosted: build equivalent ontology layer on OpenPlanter's entity model
+- Add Neo4j or equivalent graph store for persistent ontology beyond OpenPlanter sessions
+- Build export pipeline: OpenPlanter entities/relationships → graph database → visualization (Gephi, Neo4j Browser)
 - Add provenance tracking: every edge fragment linked to its source data, model, session, and human validator
 - Add access controls: edge fragments may touch sensitive connection hypotheses
+- Build simple web dashboard for the Unnamed Pattern Registry (or use a shared markdown repo)
 
 ---
 
@@ -330,7 +310,7 @@ Applying edge-finding to its own proposal:
 
 Applying constraint storm methodology:
 
-- **Technical:** All three components exist. Integration is engineering, not invention.
+- **Technical:** Both components exist and are open-source. Integration is engineering, not invention.
 - **Data:** OSINT is abundant. HUMINT requires relationships and trust.
 - **Governance:** Edge fragments need new classification and handling procedures.
 - **Adoption:** Analysts trained in structured methods may resist "scatter probability."
@@ -347,7 +327,7 @@ Applying constraint storm methodology:
 | Layer | Tool | Role | Produces |
 |-------|------|------|----------|
 | Collection | OpenPlanter | Recursive OSINT ingestion & entity resolution | Resolved entities, evidence chains |
-| Structure | Palantir AIP | Governed ontology & analytical workflows | Typed relationships, auditable models |
+| Structure | OpenPlanter Ontology + Neo4j | Entity-relationship model & graph persistence | Typed relationships, queryable graph |
 | Exploration | Edge Bird | Low-probability space discovery | Fragments, inversions, unnamed patterns |
 | Judgment | Human Analyst | Elastic tether holder, HUMINT source | Validation, direction, domain expertise |
 
@@ -362,10 +342,6 @@ Applying constraint storm methodology:
 - [OpenPlanter — GitHub](https://github.com/ShinMegamiBoson/OpenPlanter)
 - [OpenPlanter: Community Edition of Palantir — MarkTechPost](https://www.marktechpost.com/2026/02/21/is-there-a-community-edition-of-palantir-meet-openplanter-an-open-source-recursive-ai-agent-for-your-micro-surveillance-use-cases/)
 - [OpenPlanter: Open-Source AI for OSINT Surveillance — i10x.ai](https://i10x.ai/news/openplanter-open-source-ai-agent-osint)
-- [Palantir AIP Overview](https://www.palantir.com/docs/foundry/aip/overview)
-- [Palantir Ontology](https://www.palantir.com/platforms/ontology/)
-- [Palantir Intelligence Offerings](https://www.palantir.com/offerings/intelligence/)
-- [AIP Agent Studio](https://www.palantir.com/docs/foundry/agent-studio/overview)
 
 ---
 
