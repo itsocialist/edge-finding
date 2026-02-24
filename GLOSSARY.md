@@ -36,4 +36,30 @@ Quick reference for terminology used in this practice.
 
 ---
 
+## Intelligence Integration Terms
+
+**Bias cartography** — The practice of mapping which LLM models consistently surface which types of associations. Not to eliminate bias, but to understand it as an instrument — knowing which model's lens is sharpest for which investigation type.
+
+**Context packet** — Standardized input prepared from structured analysis: entities, relationships, timeline, gaps, and HUMINT notes. Identical context goes to each model during multi-model scatter.
+
+**Convergent fragment** — A fragment surfaced by 2+ LLMs independently. Higher signal than a unique fragment. Multiple training distributions saw the same unlikely association.
+
+**Divergence map** — A comparison matrix showing which fragments were produced by which models. The disagreement space between models is where unnamed patterns hide.
+
+**Multi-model scatter** — Running identical edge-finding prompts against 3+ LLMs independently, then comparing outputs. Different training distributions surface different edges. The divergence is the signal.
+
+**Naming ceremony** — The process of promoting an unnamed pattern to a formal ontology type. Requires: multiple instances, defined characteristics, analyst consensus, and integration back into the structured analysis layer.
+
+**Peripheral centrality** — An entity that appears unimportant in any single dataset but becomes topologically central when datasets are fused. Designed to avoid attention. An unnamed pattern type.
+
+**Shadow coordinator** — An entity that never appears as principal but controls information flow between entities that officially have no relationship. Term borrowed from cross-cultural governance analysis.
+
+**Temporal breathing pattern** — A non-calendrical periodic correlation between entity activities suggesting hidden coordination. Not an event — a rhythm. An unnamed pattern type.
+
+**Unnamed pattern** — An edge fragment that survived validation but doesn't fit existing ontology categories. Held in the Unnamed Pattern Registry until it earns a name, gets merged, gets promoted, or gets archived.
+
+**Unnamed Pattern Registry** — A structured holding space for patterns that don't yet have ontology types. Tracks lifecycle: discovered → active → watching → named/promoted/merged/archived.
+
+---
+
 *This glossary is descriptive, not prescriptive. Terms may evolve as the practice develops.*
