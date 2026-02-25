@@ -1,0 +1,242 @@
+# Sample context packet for edge-finding session
+# Based on synthetic government procurement scenario
+# Load with: edgebird inspect examples/sample-context.yaml
+#        or: edgebird run examples/sample-context.yaml
+
+entities:
+  - id: entity-1
+    name: "Meridian Defense Solutions"
+    type: organization
+    attributes:
+      sector: defense contracting
+      founded: "2019"
+      employees: 45
+      registration: Virginia
+
+  - id: entity-2
+    name: "James Whitfield"
+    type: person
+    attributes:
+      role: CEO of Meridian Defense Solutions
+      prior: "Former procurement officer, DoD"
+
+  - id: entity-3
+    name: "ClearPath Consulting"
+    type: organization
+    attributes:
+      sector: management consulting
+      founded: "2017"
+      employees: 12
+
+  - id: entity-4
+    name: "Sarah Chen"
+    type: person
+    attributes:
+      role: Managing Partner, ClearPath Consulting
+      prior: "Congressional staffer, Armed Services Committee"
+
+  - id: entity-5
+    name: "Delta Integration LLC"
+    type: organization
+    attributes:
+      sector: systems integration
+      founded: "2024-03-15"
+      employees: 3
+      notes: "Registered 23 days before receiving subcontract"
+
+  - id: entity-6
+    name: "Marcus Torres"
+    type: person
+    attributes:
+      role: Registered agent for Delta Integration LLC
+      also: "Former registered agent for dissolved entity Apex Federal Services"
+
+  - id: entity-7
+    name: "Nexus Advisory Group"
+    type: organization
+    attributes:
+      sector: advisory
+      founded: "2016"
+      employees: 8
+      notes: "Appears peripherally in all three datasets. Never as prime or named lobbyist."
+
+  - id: entity-8
+    name: "David Park"
+    type: person
+    attributes:
+      role: Partner, Nexus Advisory Group
+      also: "Board member, ClearPath Consulting"
+
+  - id: entity-9
+    name: "Department of Defense - DISA"
+    type: government
+    attributes:
+      role: Contracting agency
+
+  - id: entity-10
+    name: "Lobbyist Rebecca Harmon"
+    type: person
+    attributes:
+      role: Registered lobbyist
+      clients: "Meridian Defense Solutions, ClearPath Consulting"
+
+  - id: entity-11
+    name: "Apex Federal Services"
+    type: organization
+    attributes:
+      sector: federal IT services
+      founded: "2015"
+      dissolved: "2022-09"
+      notes: "Dissolved entity. Same registered agent as Delta Integration LLC."
+
+  - id: entity-12
+    name: "SecureNode Facility"
+    type: asset
+    attributes:
+      type: SCIF
+      location: Northern Virginia
+      clearance: Top Secret
+
+relationships:
+  - source: entity-2
+    target: entity-1
+    type: leads
+    evidence: "Corporate registry filing"
+
+  - source: entity-4
+    target: entity-3
+    type: leads
+    evidence: "Corporate registry filing"
+
+  - source: entity-1
+    target: entity-9
+    type: contracts_with
+    evidence: "Contract award FA8750-25-C-0042, $18.2M"
+
+  - source: entity-1
+    target: entity-5
+    type: subcontracts_to
+    evidence: "Subcontract modification, $4.2M"
+
+  - source: entity-6
+    target: entity-5
+    type: registered_agent
+    evidence: "Virginia SCC filing"
+
+  - source: entity-6
+    target: entity-11
+    type: registered_agent
+    evidence: "Virginia SCC filing (dissolved)"
+
+  - source: entity-10
+    target: entity-9
+    type: lobbied
+    evidence: "LD-2 disclosures, 11 meetings Q3 2024, 0 meetings Q4 2024"
+
+  - source: entity-10
+    target: entity-1
+    type: lobbied_for
+    evidence: "LD-1 registration"
+
+  - source: entity-8
+    target: entity-7
+    type: partner_at
+    evidence: "Corporate registry"
+
+  - source: entity-8
+    target: entity-3
+    type: board_member
+    evidence: "Corporate annual report"
+
+  - source: entity-7
+    target: entity-1
+    type: shares_address
+    evidence: "Same suite, 1750 Tysons Blvd"
+
+  - source: entity-7
+    target: entity-3
+    type: shares_address
+    evidence: "Same registered address"
+
+  - source: entity-7
+    target: entity-5
+    type: shares_officer
+    evidence: "Marcus Torres listed as advisor"
+
+  - source: entity-2
+    target: entity-9
+    type: formerly_employed
+    evidence: "LinkedIn profile, left DoD 2018"
+
+  - source: entity-4
+    target: entity-9
+    type: formerly_connected
+    evidence: "Congressional oversight role, Armed Services Committee"
+
+timeline:
+  - date: "2015"
+    event: "Apex Federal Services founded"
+    entities: [entity-11, entity-6]
+
+  - date: "2016"
+    event: "Nexus Advisory Group founded"
+    entities: [entity-7, entity-8]
+
+  - date: "2017"
+    event: "ClearPath Consulting founded"
+    entities: [entity-3, entity-4]
+
+  - date: "2018"
+    event: "James Whitfield leaves DoD procurement"
+    entities: [entity-2, entity-9]
+
+  - date: "2019"
+    event: "Meridian Defense Solutions founded"
+    entities: [entity-1, entity-2]
+
+  - date: "2022-09"
+    event: "Apex Federal Services dissolved"
+    entities: [entity-11, entity-6]
+
+  - date: "2024-Q3"
+    event: "Lobbyist discloses 11 meetings with DISA"
+    entities: [entity-10, entity-9]
+
+  - date: "2024-Q4"
+    event: "Lobbying contact drops to zero"
+    entities: [entity-10]
+
+  - date: "2024-12"
+    event: "Contract spec finalized for FA8750-25-C-0042"
+    entities: [entity-9]
+
+  - date: "2025-01-08"
+    event: "Delta Integration LLC registered in Virginia"
+    entities: [entity-5, entity-6]
+
+  - date: "2025-01-31"
+    event: "Contract awarded to Meridian Defense Solutions"
+    entities: [entity-1, entity-9]
+
+  - date: "2025-02-15"
+    event: "Subcontract to Delta Integration LLC filed"
+    entities: [entity-1, entity-5]
+
+gaps:
+  - "Delta LLC registered 23 days before receiving $4.2M subcontract. No prior contracting history. No web presence."
+  - "Lobbyist had 11 meetings in Q3 2024, then zero in Q4. Contract awarded Q1 2025. Why did lobbying stop?"
+  - "Nexus Advisory Group appears in all three datasets but always peripherally. Never prime, never lobbyist, never awardee."
+  - "Dissolved Apex Federal Services and new Delta Integration LLC share same registered agent but no other legal connection."
+  - "David Park sits on boards of both Nexus Advisory and ClearPath but no financial relationship documented."
+  - "No transaction data available for Nexus Advisory Group despite being connected to 6 other entities."
+
+humint_notes:
+  - "Nexus Advisory feels like the center of something but the data makes it look peripheral. Pattern recognition without being able to articulate the pattern."
+  - "Source reports that SecureNode Facility access logs show regular visits by individuals not associated with any known contract."
+  - "The timing feels orchestrated. Each phase has a different visible actor."
+  - "Marcus Torres name appeared in a completely unrelated investigation 18 months ago. Coincidence?"
+
+metadata:
+  investigation: "Government procurement pattern analysis"
+  classification: "Synthetic scenario for methodology demonstration"
+  created: "2026-02-25"

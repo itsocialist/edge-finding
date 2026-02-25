@@ -1,2 +1,13 @@
 .DS_Store
 *.zip
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Edge Bird runtime data (sessions and registry are generated)
+sessions/session-*/
+registry/index.yaml

@@ -1,0 +1,19 @@
+[project]
+name = "edgebird"
+version = "0.1.0"
+description = "OSINT edge-finding: multi-model scatter, fragment divergence analysis, unnamed pattern discovery"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+    "litellm>=1.40.0",
+    "rich>=13.0",
+    "click>=8.0",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+edgebird = "edgebird.cli:cli"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
