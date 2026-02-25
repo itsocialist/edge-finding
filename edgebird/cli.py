@@ -78,7 +78,7 @@ def inspect(context_file: str):
     help="Comma-separated model specs (provider/model:label)",
 )
 @click.option("--fragments", "-n", default=10, help="Number of fragments per model")
-@click.option("--temperature", "-t", default=1.0, help="Sampling temperature")
+@click.option("--temperature", "-t", default=0.7, help="Sampling temperature (default 0.7)")
 @click.option("--domain", "-d", default="", help="Investigation domain description")
 @click.option("--analyst", "-a", default="", help="Analyst identifier")
 @click.option(

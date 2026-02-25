@@ -8,6 +8,8 @@ __pycache__/
 dist/
 build/
 
-# Edge Bird runtime data (sessions and registry are generated)
-sessions/session-*/
+# Edge Bird runtime data — never commit investigation output
+sessions/
+contexts/
 registry/index.yaml
+.venv/
