@@ -3,7 +3,8 @@
 > **Generated:** 2026-03-04
 > **Profile:** [github.com/itsocialist](https://github.com/itsocialist)
 > **Affiliated Org:** [github.com/opensourceops](https://github.com/opensourceops)
-> **Total Identified:** 42 repos (28 personal + 14 org) | 18 private repos under `itsocialist` (13 unidentified)
+> **Total Identified:** 43 repos (28 personal + 14 org + 1 alt account) | 18 private repos under `itsocialist` (12 unidentified)
+> **Alt Account:** [github.com/bvdawson](https://github.com/bvdawson) (3 repos — not enumerated here)
 
 ---
 
@@ -39,7 +40,8 @@
 | 13 | mcp-universal-framework | Universal framework for MCP server development — extracted from real-world implementation | Unknown | **Private** | Unknown | Unknown | No | Unknown | Unknown |
 | 14 | flutterflow-mcp-server | MCP server for FlutterFlow API — manage projects, components, custom code, DB schemas via AI | Unknown | **Private** | Unknown | Unknown | No | Unknown | Unknown |
 | 15 | claude-code-connector-mcp | Bridges Claude Desktop, Claude Code CLI, and Claude Code for VS Code — CIQ internal | Unknown | **Private** | Unknown | Unknown | No | Early (awaiting discovery) | Unknown |
-| 16–28 | *13 unidentified private repos* | See [Unidentified Private Repos](#unidentified-private-repos) | — | **Private** | — | — | — | — | — |
+| 16 | OpenPlanter | Recursive AI agent for OSINT/investigation — "open-source Palantir" (fork/copy of [ShinMegamiBoson/OpenPlanter](https://github.com/ShinMegamiBoson/OpenPlanter)) | Python | **Private** | ~2026-02 | Unknown | Fork | Unknown | Unknown |
+| 17–28 | *12 unidentified private repos* | See [Unidentified Private Repos](#unidentified-private-repos) | — | **Private** | — | — | — | — | — |
 
 ### opensourceops Organization Repos (14 total — all public)
 
@@ -115,13 +117,14 @@
 
 ### 4. Intelligence / OSINT (research tools, HUMINT-adjacent)
 
-**1 confirmed repo**
+**2 confirmed repos**
 
 | Repo | Purpose | Status |
 |------|---------|--------|
 | **osint-toolkit** | Open-source intelligence toolkit (Python) | Early |
+| **OpenPlanter** (private) | Recursive AI agent for OSINT — ingests corporate registries, campaign finance, lobbying disclosures. Fork of ShinMegamiBoson/OpenPlanter ("open-source Palantir") | Unknown |
 
-**Summary:** The osint-toolkit is small (153 KB) and appears to be in early development with no README. Brian's starred repos include kernel-hardening-checker and security-focused tools, suggesting deeper interest in this domain. Additional OSINT/intel repos may exist in the private pool.
+**Summary:** Two OSINT repos forming a research/intelligence pipeline. osint-toolkit is a custom build (153 KB, early stage). OpenPlanter is a private fork of a recursive-language-model investigation agent that processes corporate registries, campaign finance records, and lobbying disclosures — significant capability for competitive intelligence and due diligence. Brian's starred repos include kernel-hardening-checker and security-focused tools, reinforcing this as an active interest area.
 
 ---
 
@@ -335,7 +338,7 @@
 
 ## Unidentified Private Repos
 
-**13 repos** under `itsocialist` could not be identified without authenticated API access. Based on Brian's known activities and domains, these likely include:
+**12 repos** under `itsocialist` could not be identified without authenticated API access. Based on Brian's known activities and domains, these likely include:
 
 ### High-Confidence Predictions
 
@@ -385,12 +388,19 @@ This catalog was compiled using:
 - **Repository README analysis** via raw.githubusercontent.com
 - **opensourceops organization** enumeration
 
+### Additional Discoveries
+
+- **OpenPlanter** (private repo #16) was discovered via the GitHub Events API — itsocialist's public events revealed interactions with this private fork of ShinMegamiBoson/OpenPlanter.
+- **bvdawson** ([github.com/bvdawson](https://github.com/bvdawson)) was identified as Brian Dawson's alternate GitHub account (3 repos, not enumerated in this catalog).
+- **No packages** found under "itsocialist" on npm, PyPI, or Docker Hub.
+- **No presence** found on dev.to, Medium, or Twitter/X under "itsocialist."
+
 ### Limitations
 
-1. **18 private repos under itsocialist** are not accessible without authentication. 13 remain completely unidentified.
+1. **18 private repos under itsocialist** are not accessible without authentication. 12 remain completely unidentified.
 2. **Private repo metadata** (language, last push, README quality) is unknown for repos identified only through web references.
 3. **opensourceops ownership** is inferred from shared repos (canny-mcp-server) and consistent technical patterns, but not formally confirmed.
-4. The user reported **49+ repos** — this catalog identifies **42**. The gap may include repos in other organizations, deleted repos, or repos under alternate accounts.
+4. The user reported **49+ repos** — this catalog identifies **43** (+ 3 under bvdawson = 46). The gap may include repos in other organizations, deleted repos, or repos under additional accounts.
 
 ---
 
